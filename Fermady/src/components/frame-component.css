@@ -1,0 +1,55 @@
+.image-5-icon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.image-5-wrapper {
+  height: 150px;
+  width: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-3xs);
+  box-sizing: border-box;
+}
+.image-6-icon {
+  width: 327px;
+  height: 64px;
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+}
+.image-6-wrapper {
+  height: 112px;
+  width: 368px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.image-8-icon {
+  height: 225px;
+  width: 225px;
+  position: relative;
+  object-fit: cover;
+}
+.frame-div {
+  width: 1074px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+@media screen and (max-width: 1050px) {
+  .frame-div {
+    flex-wrap: wrap;
+  }
+}
