@@ -1,43 +1,67 @@
-<!DOCTYPE html>
 <html>
-  <head>
+    <head>
+        <title>Firebase_prueba1</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="box">
+            <div class="form">
+                <h2>Register</h2>
+                <form>
+                    <div class="inputbox">
+                        <input type="text" value="" id="username" required>
+                        <span>Username</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" value="" id="email" required>
+                        <span>E-mail</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" value="" id="account" required>
+                        <span>Acount</span>
+                    </div>
+                    <input type="submit" value="Insertar Datos" class="sub" id="submit">
+                </form>
+            </div>
+        </div>
+        <script type="module">
+                        
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 
-  </head>
-  <body>
-    <button onclick="saveData()">Save Data</button>
-    <button onclick="printData()">Print Data</button>
-    <button onclick="printData2()">Print Data2</button>
+            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
-    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-    <script>
-      var ref = new Firebase("https://test--firebase.firebaseio.com/web/saving-data/fireblog");
-      var usersRef = ref.child("users");
-      function saveData(){
-        usersRef.set({
-          alanisawesome: {
-            date_of_birth: "June 23, 1912",
-            full_name: "Alan Turing"
-          },
-          gracehop: {
-            date_of_birth: "December 9, 1906",
-            full_name: "Grace Hopper"
-          }
-        });
-      }
-      function printData(){
-        usersRef.on("value", function(snapshot) {
-          console.log(snapshot.val());
-        }, function (errorObject) {
-          console.log("The read failed: " + errorObject.code);
-        });
-      }
-      function printData2(){
-        ref.child("users/gracehop/date_of_birth").on("value", function(snapshot) {
-          console.log(snapshot.val()); // "December 9, 1906"
-        }, function (errorObject) {
-          console.log("The read failed: " + errorObject.code);
-        });
-      }
-    </script>
-  </body>
+
+            //console.log("Ejecutando");
+
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyBaGSfLSmbqWsVzzmrzliCZjCtowujyO7E",
+                authDomain: "fir-prueba-26e7e.firebaseapp.com",
+                projectId: "fir-prueba-26e7e",
+                storageBucket: "fir-prueba-26e7e.appspot.com",
+                messagingSenderId: "240706810699",
+                appId: "1:240706810699:web:f043aee78705e38f636ece"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+            //get ref to database services
+            const db = getDatabase(app);
+
+            document.getElementById("submit").addEventListener("click", function(e){
+                e.preventDefault();
+                set(ref(db, 'user/' + document.getElementById("username").value),
+                {
+                    username: document.getElementById("username").value,
+                    email: document.getElementById("email").value,
+                    account: document.getElementById("account").value
+                }
+                ); alert("Has registrado tus datos a la base.");
+                console.log(username.value, email.value, account.value)
+            })
+
+        </script>
+    </body>
 </html>
