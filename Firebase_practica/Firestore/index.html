@@ -16,28 +16,29 @@
             <input type="text" id="comida" name="comida"  placeholder="Pan" required>
             <input type="text" id="price" name="price" placeholder="$" required>
             <button id="subir">Agregar al carrito</button>
-            <form class="delete">
-                <button id="Eliminar_ultimo">-</button>
-            </form>
-            
+                        
         </form>
     </div>
 
     <!-- Lista -->
     <div class="container">
         <h2>Contenido</h2>
-        <form action="" id="add_cafe_list"></form>
 
         <ul id="Lista"></ul>
-
+        <h2 id="Resultado">$</h2>
+    </div>
+    <div class="container">        
+        <form class="delete">
+            <input type="text" id="borrar" name="borrar_producto"  placeholder="Productos para quitar" required>
+            <button id="Eliminar_ultimo">-</button>
+        </form>
 
     </div>
-          
 
     <script type="module">
         // Import the functions you need from the SDKs you need        
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-        import { getFirestore, collection, doc, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+        import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
         
               
         // Your web app's Firebase configuration
@@ -61,12 +62,14 @@
         getDocs(carritoCollection).then((snapshot)=>{  
             let lista_carrito = []      
             snapshot.docs.forEach((doc) => {
+                var n=n+1
+                const id= doc.id
                 const cantidad = doc.data().cantidad
                 const nombre = doc.data().nombre
                 const precio = doc.data().precio
-                console.log(cantidad, nombre, precio);
+                console.log(id, cantidad, nombre, precio);
                 //consola
-                lista_carrito.push({ ...cantidad, cantidad, nombre, precio});
+                lista_carrito.push({ ...n, cantidad, nombre, precio});
                 
                 //imprimir la lista con el contenido
                 let htmlContent = "";
@@ -77,7 +80,7 @@
                 // Introducimos el contenido HTML en el div con id "carrito-container"
                 const carritoContainer = document.getElementById("Lista");
                 carritoContainer.innerHTML = htmlContent;
-                        
+                                                       
             });
             console.log(lista_carrito)
         }).catch((error)=> {
@@ -106,14 +109,12 @@
         deleteCarrito.addEventListener('submit', (e) => {
             e.preventDefault()
 
-            delDoc(carritoCollection, {
-                cantidad: addCarrito.canti.value,
-                nombre: addCarrito.comida.value,
-                precio: addCarrito.price.value,
+            const docReferencia = doc(db,'carrito', deleteCarrito.borrar_producto.value)
+
+            deleteDoc(docReferencia).then(() => {
+                deleteCarrito.reset();
             })
-            .then(() => {
-                addCarrito.reset()                         
-            })
+
         })
         
 
