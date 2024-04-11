@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compras</title>
+</head>
+<body>
+    
+    <div class="container">
+        <form class="add">
+            <img src="img/carrito.png">
+            <input type="number" id="cant" name="canti" placeholder="1" required>
+            <input type="text" id="comida" name="comida"  placeholder="Pan" required>
+            <input type="text" id="price" name="price" placeholder="$" required>
+            <button id="subir">Agregar al carrito</button>
+            <form class="delete">
+                <button id="Eliminar_ultimo">-</button>
+            </form>
+            
+        </form>
+    </div>
+
+    <!-- Lista -->
+    <div class="container">
+        <h2>Contenido</h2>
+        <form action="" id="add_cafe_list"></form>
+
+        <ul id="Lista"></ul>
+
+
+    </div>
+          
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getFirestore, collection, doc, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+        
+              
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBaGSfLSmbqWsVzzmrzliCZjCtowujyO7E",
+            authDomain: "fir-prueba-26e7e.firebaseapp.com",
+            databaseURL: "https://fir-prueba-26e7e-default-rtdb.firebaseio.com",
+            projectId: "fir-prueba-26e7e",
+            storageBucket: "fir-prueba-26e7e.appspot.com",
+            messagingSenderId: "240706810699",
+            appId: "1:240706810699:web:427982c8457c1c2b636ece"
+        };
+    
+        // Initialize Firebase        
+        initializeApp(firebaseConfig);
+
+        //OBTENER DATOS DE LA BASE
+        const db = getFirestore();
+        const carritoCollection = collection(db, 'carrito')
+
+        getDocs(carritoCollection).then((snapshot)=>{  
+            let lista_carrito = []      
+            snapshot.docs.forEach((doc) => {
+                const cantidad = doc.data().cantidad
+                const nombre = doc.data().nombre
+                const precio = doc.data().precio
+                console.log(cantidad, nombre, precio);
+                //consola
+                lista_carrito.push({ ...cantidad, cantidad, nombre, precio});
+                
+                //imprimir la lista con el contenido
+                let htmlContent = "";
+                lista_carrito.forEach((item) => {
+                    htmlContent += `<li>${item.cantidad} ${item.nombre} - $${item.precio}</li>`;
+                });
+
+                // Introducimos el contenido HTML en el div con id "carrito-container"
+                const carritoContainer = document.getElementById("Lista");
+                carritoContainer.innerHTML = htmlContent;
+                        
+            });
+            console.log(lista_carrito)
+        }).catch((error)=> {
+            console.log("Error al traer los elementos del carrito.", error);
+        });
+
+        //AGREGAR A LA BASE
+        const addCarrito = document.querySelector('.add')
+
+        addCarrito.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            addDoc(carritoCollection, {
+                cantidad: addCarrito.canti.value,
+                nombre: addCarrito.comida.value,
+                precio: addCarrito.price.value,
+            })
+            .then(() => {
+                addCarrito.reset()                         
+            })
+        })
+
+        //BORRAR ÚLTIMO
+        const deleteCarrito = document.querySelector('.delete')
+
+        deleteCarrito.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            delDoc(carritoCollection, {
+                cantidad: addCarrito.canti.value,
+                nombre: addCarrito.comida.value,
+                precio: addCarrito.price.value,
+            })
+            .then(() => {
+                addCarrito.reset()                         
+            })
+        })
+        
+
+
+    </script>
+    
+
+</body>
+</html>
