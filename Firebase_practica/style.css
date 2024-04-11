@@ -1,68 +1,44 @@
-*
-{
+html, body{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgba(117, 113, 113, 0.8);
 }
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url(img/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
+div {    
+    display:flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin:30px auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.box
-{
-    padding: 20px 30px;
-    width: 300px;
-    height: 400px;
-    backdrop-filter: blur(100px);
-    border-radius: 5px;
-    background: rgba(49, 49, 49, .2);
-    border: 1px solid rgba(255, 255, 255, .5);
+form {    
+    border-color: #432000;
 }
-.box .form
-{
-    padding: 10px 20px;
+.box{
+    background-color:  rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
 }
-.box .form h2
-{
+
+input {
+    color: #432000;
+    background-color: #DCE1E8;    
+    border: 0;
+    padding: 15px;
+    border-radius: 10px;
+    font-size:20px;   
+    text-align: center; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    color: #fdfdfd;
+    background-color: rgb(211, 159, 96);
+    margin:15px;
+    border-radius: 10px;
+    border: 0;
+    padding: 15px;
+    font-size:20px;   
     text-align: center;
-    color: #fff;
-}
-.box .form form
-{
-    margin-top: 50px;
-    align-items: center;
-}
-.box .form form .inputbox input
-{
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    background: none;
-    border-bottom: 1px solid #12151e;
-    margin-bottom: 30px;
-    color: #fff;
-}
-.box .form form .inputbox span
-{
-    position: absolute;
-    transform: translateY(-80px);
-    font-size: 14px;
-    color: #fff;
-}
-.box .form form .sub
-{
-    padding: 10px 20px;
-    color: #fff;
-    border: none;
-    outline: none;
-    background: #0cc0df;
-    cursor: pointer;
-    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
