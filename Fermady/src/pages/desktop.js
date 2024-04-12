@@ -1,17 +1,42 @@
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import ProductDetails from "../components/ProductDetails";
 import "./desktop.css";
 
 const Desktop = () => {
+  const navigate = useNavigate();
+
+  const onVolverTextClick = useCallback(() => {
+    navigate("/tracking");
+  }, [navigate]);
+
+  const onButtonShapeClick = useCallback(() => {
+    navigate("/url");
+  }, [navigate]);
+
   return (
-    <div className="desktop-4">
-      <div className="f-r-a-m-e-a">
-        <div className="vector-group">
-          <img className="frame-inner" alt="" src="/vector-2.svg" />
-          <div className="tracking-de-precios">TRACKING DE PRECIOS</div>
+    <div className="tracking-gmg">
+      <div className="page-layout">
+        <div className="navigation-area">
+          <div className="volver2" onClick={onVolverTextClick}>
+            ← Volver
+          </div>
+        </div>
+        <div className="vector-container">
+          <img className="vector-icon" alt="" src="/vector-21.svg" />
+          <div className="tracking-de-precios1">TRACKING DE PRECIOS</div>
         </div>
       </div>
-      <section className="rectangle-parent">
-        <div className="rectangle-div" />
-        <div className="el-gallo-mas">El Gallo mas Gallo</div>
+      <section className="tracking-gmg-inner">
+        <form className="group-form">
+          <div className="frame-child4" />
+          <div className="el-gallo-mas">El Gallo mas Gallo</div>
+          <ProductDetails />
+          <button className="btn-aadir">
+            <div className="button-shape" onClick={onButtonShapeClick} />
+            <b className="aadir">+ Añadir</b>
+          </button>
+        </form>
       </section>
     </div>
   );

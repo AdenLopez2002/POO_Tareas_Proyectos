@@ -1,0 +1,77 @@
+.property-1variant3-child {
+  position: absolute;
+  height: 66.06%;
+  width: 100%;
+  top: 19.27%;
+  right: 0;
+  bottom: 14.68%;
+  left: 0;
+  border-radius: var(--br-lg);
+  background-color: var(--color-white);
+}
+.property-1variant3-item {
+  position: absolute;
+  height: 55.05%;
+  width: 5.56%;
+  top: 24.77%;
+  right: 3.89%;
+  bottom: 20.18%;
+  left: 90.56%;
+  border-radius: 50%;
+  background-color: var(--color-tomato);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+.h1,
+.juego-de-sala,
+.l1999500 {
+  position: absolute;
+  font-weight: 800;
+}
+.h1 {
+  margin: 0;
+  top: 0;
+  left: 91.67%;
+  font-size: var(--font-size-61xl);
+  font-family: inherit;
+  color: var(--color-white);
+  z-index: 2;
+}
+.juego-de-sala,
+.l1999500 {
+  top: 29.36%;
+  left: 68.43%;
+  z-index: 1;
+}
+.juego-de-sala {
+  left: 3.43%;
+}
+.property-1variant3 {
+  width: 1080px;
+  height: 109px;
+  position: relative;
+  z-index: 4;
+  margin-top: -16px;
+  text-align: center;
+  font-size: var(--font-size-17xl);
+  color: var(--color-black);
+  font-family: var(--font-nunito);
+}
+@media screen and (max-width: 1050px) {
+  .h1 {
+    font-size: var(--font-size-21xl);
+  }
+  .juego-de-sala,
+  .l1999500 {
+    font-size: var(--font-size-10xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .h1 {
+    font-size: var(--font-size-5xl);
+  }
+  .juego-de-sala,
+  .l1999500 {
+    font-size: var(--font-size-3xl);
+  }
+}

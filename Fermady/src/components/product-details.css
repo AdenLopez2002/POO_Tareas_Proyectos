@@ -1,0 +1,33 @@
+.product-details,
+.property-1default-parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.property-1default-parent {
+  flex: 1;
+  border-radius: var(--br-8xs);
+  overflow-x: auto;
+  flex-direction: column;
+  padding: var(--padding-xl);
+  z-index: 1;
+}
+.product-details {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-31xl);
+  margin-top: -6px;
+  text-align: center;
+  font-size: var(--font-size-17xl);
+  color: var(--color-black);
+  font-family: var(--font-nunito);
+}
+@media screen and (max-width: 1200px) {
+  .product-details {
+    padding-left: var(--padding-6xl);
+    padding-right: var(--padding-6xl);
+    box-sizing: border-box;
+  }
+}

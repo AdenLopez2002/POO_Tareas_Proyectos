@@ -5,10 +5,11 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Desktop2 from "./pages/desktop2";
+import URL1 from "./pages/u-r-l1";
+import HistorialGMG from "./pages/historial-g-m-g";
+import PaginaPrincipal from "./pages/pagina-principal";
 import Desktop from "./pages/desktop";
 import Desktop1 from "./pages/desktop1";
-import Desktop3 from "./pages/desktop3";
 
 function App() {
   const action = useNavigationType();
@@ -30,15 +31,19 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/desktop-4":
+      case "/historial-gmg":
         title = "";
         metaDescription = "";
         break;
-      case "/desktop-3":
+      case "/pagina-principal":
         title = "";
         metaDescription = "";
         break;
-      case "/desktop-1":
+      case "/tracking-gmg":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/tracking":
         title = "";
         metaDescription = "";
         break;
@@ -60,10 +65,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Desktop2 />} />
-      <Route path="/desktop-4" element={<Desktop />} />
-      <Route path="/desktop-3" element={<Desktop1 />} />
-      <Route path="/desktop-1" element={<Desktop3 />} />
+      <Route path="/" element={<URL1 />} />
+      <Route path="/historial-gmg" element={<HistorialGMG />} />
+      <Route path="/pagina-principal" element={<PaginaPrincipal />} />
+      <Route path="/tracking-gmg" element={<Desktop />} />
+      <Route path="/tracking" element={<Desktop1 />} />
     </Routes>
   );
 }

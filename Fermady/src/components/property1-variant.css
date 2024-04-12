@@ -1,0 +1,109 @@
+.property-1variant4-child {
+  height: 72px;
+  width: 100%;
+  position: absolute;
+  margin: 0 !important;
+  right: 0;
+  bottom: 16px;
+  left: 0;
+  border-radius: var(--br-lg);
+  background-color: var(--color-white);
+}
+.computadora-dell {
+  width: 314px;
+  position: relative;
+  font-weight: 800;
+  display: inline-block;
+  z-index: 1;
+}
+.computadora-dell-wrapper {
+  width: 651px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-13xl) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-17xl);
+  color: var(--color-black);
+  font-family: var(--font-nunito);
+}
+.l1859600 {
+  align-self: stretch;
+  position: relative;
+  font-weight: 800;
+  z-index: 1;
+}
+.l1859600-wrapper {
+  width: 201px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-13xl) 0 0;
+  box-sizing: border-box;
+}
+.ellipse-div {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: 22px;
+  left: calc(50% - 30px);
+  border-radius: 50%;
+  background-color: var(--color-tomato);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+.h11 {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  font-weight: 800;
+  font-family: inherit;
+  z-index: 2;
+}
+.ellipse-parent,
+.property-1variant4 {
+  width: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  font-size: var(--font-size-61xl);
+  color: var(--color-white);
+}
+.property-1variant4 {
+  width: 1080px;
+  padding: 0 var(--padding-19xl);
+  box-sizing: border-box;
+  gap: var(--gap-31xl);
+  z-index: 5;
+  margin-top: -16px;
+  text-align: center;
+  font-size: var(--font-size-17xl);
+  color: var(--color-black);
+  font-family: var(--font-nunito);
+}
+@media screen and (max-width: 1050px) {
+  .computadora-dell,
+  .l1859600 {
+    font-size: var(--font-size-10xl);
+  }
+  .h11 {
+    font-size: var(--font-size-21xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .computadora-dell,
+  .l1859600 {
+    font-size: var(--font-size-3xl);
+  }
+  .h11 {
+    font-size: var(--font-size-5xl);
+  }
+}
