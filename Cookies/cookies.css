@@ -1,0 +1,92 @@
+body {
+    background: #f2f2f2;
+    font-family: "Roboto", sans-serif;
+}
+p {
+    margin-bottom: 20px;
+    line-height: 150%;
+}
+
+.main{
+    margin: 20px auto;
+    max-width: 1000px;
+    background: #fff;
+    min-height: 80vh;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tarjetita {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    width: calc(100%-40px);
+    max-width: 300px;
+    line-height: 150%;
+    border-radius: 10px;
+    /*para que quede estático*/
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    padding-top: 60px;
+    box-shadow: 0px 20px 20px 10px lightgrey;
+    text-align: center;
+}
+
+.tarjetita.activa {
+    display: block;
+}
+
+img{
+    max-width: 100px;
+    /*posicion absoluta (no estático) que quede flotando sin moverse*/
+    position: absolute;
+    /*para cambiarla de lugar: */
+    top: -10px;
+    right: -10px;    
+}
+#ok {
+    width: 100%;
+    color: #f2f2f2;
+    background-color: #595959;
+    border: 0;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: .3s ease all;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+#ok:hover {
+    background-color: rgb(124, 121, 121);
+}
+
+a {
+    color: rgb(73, 97, 230);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.fondo_aviso_cookies {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, .20);
+    width: 100vw;
+    height: 100vw;
+    top: 0;
+    left: 0;
+
+}
+
+.fondo_aviso_cookies.activo {
+    display: block;
+}
